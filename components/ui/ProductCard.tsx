@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import NextImage from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -9,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/store/useCart";
 import { useWishlist } from "@/lib/store/useWishlist";
 import toast from "react-hot-toast";
+import { Button } from "./Button";
 
 interface ProductCardProps {
   product: {
@@ -73,12 +73,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Action Buttons Layer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16, 1, 0.3, 1] z-10 flex gap-2">
-          <button
+          <Button
             onClick={handleQuickAdd}
-            className="flex-grow bg-brand-white text-brand-black text-[10px] uppercase font-bold tracking-[0.2em] py-3 hover:bg-brand-black hover:text-brand-white transition-all shadow-xl"
+            variant="outline"
+            className="flex-grow rounded-none border-none bg-brand-white text-brand-black text-[10px] uppercase font-bold tracking-[0.2em] h-auto py-3 hover:bg-brand-black hover:text-brand-white transition-all shadow-xl"
           >
             Quick Add
-          </button>
+          </Button>
           <Link
             href={`/product/${product._id}`}
             className="bg-brand-white text-brand-black p-3 hover:bg-brand-gold hover:text-brand-white transition-all shadow-xl"

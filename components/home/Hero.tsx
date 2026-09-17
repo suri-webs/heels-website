@@ -3,8 +3,8 @@
 import React from "react";
 import NextImage from "next/image";
 import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 const Hero = () => {
   return (

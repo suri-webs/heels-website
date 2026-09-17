@@ -1,10 +1,12 @@
-import nodemailer from "nodemailer";
+// import nodemailer from "nodemailer";
 
 /**
  * LUXE HEELS Email Utility
  * Note: For production, configure SMTP settings in .env
  */
 
+/**
+ * Note: For production, configure SMTP settings in .env and uncomment the transporter
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST || "smtp.example.com",
   port: Number(process.env.EMAIL_PORT) || 587,
@@ -13,9 +15,11 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+*/
 
 export const sendOrderConfirmation = async (email: string, orderDetails: any) => {
   try {
+    /*
     const mailOptions = {
       from: '"LUXE HEELS" <no-reply@luxeheels.com>',
       to: email,
@@ -36,6 +40,7 @@ export const sendOrderConfirmation = async (email: string, orderDetails: any) =>
         </div>
       `,
     };
+    */
 
     // For now, we just log it unless SMTP is configured
     console.log(`[MAIL] Sending order confirmation to ${email}`);

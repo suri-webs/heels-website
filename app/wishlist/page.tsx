@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import NextImage from "next/image";
 import Link from "next/link";
 import { Trash2, ShoppingBag, Heart } from "lucide-react";
@@ -73,28 +73,28 @@ const WishlistPage = () => {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </Link>
-                    <button 
+                    <button
                       onClick={() => removeFromWishlist(item._id)}
                       className="absolute top-4 right-4 bg-brand-white p-2 text-brand-black/30 hover:text-red-500 transition-colors shadow-sm"
                     >
                       <Trash2 size={18} />
                     </button>
                   </div>
-                  
+
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-4">
-                        <div>
-                            <p className="text-[10px] uppercase tracking-widest text-brand-black/40 mb-1">{item.category}</p>
-                            <h3 className="text-lg font-serif">
-                                <Link href={`/product/${item._id}`}>{item.name}</Link>
-                            </h3>
-                        </div>
-                        <p className="font-bold tracking-tighter text-brand-black">${item.price.toLocaleString()}</p>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-brand-black/40 mb-1">{item.category}</p>
+                        <h3 className="text-lg font-serif">
+                          <Link href={`/product/${item._id}`}>{item.name}</Link>
+                        </h3>
+                      </div>
+                      <p className="font-bold tracking-tighter text-brand-black">${item.price.toLocaleString()}</p>
                     </div>
-                    
-                    <button 
-                       onClick={() => handleAddToCart(item)}
-                       className="w-full h-12 flex items-center justify-center gap-2 bg-brand-black text-brand-white text-xs uppercase font-bold tracking-widest hover:bg-brand-gold transition-colors"
+
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      className="w-full h-12 flex items-center justify-center gap-2 bg-brand-black text-brand-white text-xs uppercase font-bold tracking-widest hover:bg-brand-gold transition-colors"
                     >
                       <ShoppingBag size={18} />
                       Add to Bag

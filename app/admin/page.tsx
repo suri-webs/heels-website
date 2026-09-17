@@ -9,6 +9,13 @@ import {
   BarChart3,
   ArrowUpRight,
 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/Button";
 
 const AdminDashboardPage = () => {
   const [stats, setStats] = useState<any>(null);
@@ -50,8 +57,8 @@ const AdminDashboardPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {cards.map((card) => (
-          <div key={card.label} className="bg-brand-white p-8 border border-brand-black/5 shadow-sm">
-            <div className="flex items-center justify-between mb-6">
+          <Card key={card.label} className="rounded-none border-brand-black/5 shadow-sm bg-brand-white hover:border-brand-gold/30 transition-colors">
+            <CardHeader className="flex flex-row items-center justify-between pb-4">
               <div className={`p-4 ${card.color}`}>
                 <card.icon size={24} />
               </div>
@@ -59,33 +66,42 @@ const AdminDashboardPage = () => {
                 <ArrowUpRight size={14} />
                 <span>{card.trend}</span>
               </div>
-            </div>
-            <p className="text-[10px] uppercase font-bold text-brand-black/40 tracking-widest mb-1">{card.label}</p>
-            <h3 className="text-3xl font-serif font-bold tracking-tighter">{card.value}</h3>
-          </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle className="text-[10px] uppercase font-bold text-brand-black/40 tracking-widest mb-1 shadow-none bg-transparent">{card.label}</CardTitle>
+              <h3 className="text-3xl font-serif font-bold tracking-tighter">{card.value}</h3>
+            </CardContent>
+          </Card>
         ))}
       </div>
 
-      {/* Placeholder for Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-6">
-        <div className="lg:col-span-2 bg-brand-white p-8 border border-brand-black/5">
-          <h3 className="text-lg font-serif mb-6 pb-4 border-b border-brand-black/5">Revenue Trends</h3>
-          <div className="h-64 flex items-end justify-between gap-2 px-2">
-            {[40, 70, 45, 90, 65, 80, 50, 60, 85, 95, 75, 100].map((h, i) => (
-              <div key={i} className="flex-grow bg-brand-black/5 hover:bg-brand-gold transition-colors" style={{ height: `${h}%` }} />
-            ))}
-          </div>
-          <div className="flex justify-between mt-4 text-[8px] uppercase font-bold text-brand-black/30 tracking-widest px-2">
-            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
-          </div>
-        </div>
-        <div className="bg-brand-black text-brand-white p-8 flex flex-col justify-center items-center text-center">
+        <Card className="lg:col-span-2 rounded-none bg-brand-white border-brand-black/5 shadow-sm p-0">
+          <CardHeader className="border-b border-brand-black/5 pb-6">
+            <CardTitle className="text-lg font-serif">Revenue Trends</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <div className="h-64 flex items-end justify-between gap-2 px-2">
+              {[40, 70, 45, 90, 65, 80, 50, 60, 85, 95, 75, 100].map((h, i) => (
+                <div key={i} className="flex-grow bg-brand-black/5 hover:bg-brand-gold transition-colors" style={{ height: `${h}%` }} />
+              ))}
+            </div>
+            <div className="flex justify-between mt-4 text-[8px] uppercase font-bold text-brand-black/30 tracking-widest px-2">
+              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-none bg-brand-black text-brand-white flex flex-col justify-center items-center text-center p-8 border-none shadow-xl">
           <h3 className="text-lg font-serif mb-4">Stock Alert</h3>
           <p className="text-sm text-white/60 mb-8">3 items are currently running low in stock. Please restock soon.</p>
-          <button className="bg-brand-gold text-white px-8 py-3 text-[10px] uppercase font-bold tracking-widest hover:bg-white hover:text-brand-black transition-all">
+          <Button
+            variant="outline"
+            className="rounded-none bg-brand-gold text-brand-black border-none hover:bg-brand-white hover:text-brand-black uppercase text-[10px] tracking-widest font-bold h-auto py-3 px-8 transition-colors"
+          >
             View Inventory
-          </button>
-        </div>
+          </Button>
+        </Card>
       </div>
     </div>
   );

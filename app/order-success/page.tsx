@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Package, Calendar } from "lucide-react";
 import { useCart } from "@/lib/store/useCart";
@@ -28,7 +28,7 @@ const OrderSuccessPage = () => {
             <CheckCircle size={48} />
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -37,7 +37,7 @@ const OrderSuccessPage = () => {
             Confirmed
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -46,7 +46,7 @@ const OrderSuccessPage = () => {
             Your handcrafted pieces are being prepared
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -55,27 +55,27 @@ const OrderSuccessPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left border-b border-brand-black/5 pb-8">
               <div className="space-y-2">
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-black/40 flex items-center gap-2">
-                    <Package size={14} /> Order Number
+                  <Package size={14} /> Order Number
                 </p>
                 <p className="text-lg font-serif">#LX-{Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
               </div>
               <div className="space-y-2">
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-black/40 flex items-center gap-2">
-                    <Calendar size={14} /> Order Date
+                  <Calendar size={14} /> Order Date
                 </p>
                 <p className="text-lg font-serif">{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
               </div>
             </div>
 
             <div className="text-left space-y-4">
-               <p className="text-sm italic text-brand-black/60 leading-relaxed">
-                  A confirmation email has been sent to your registered address. 
-                  Our artisans will notify you as soon as your selection leaves our flagship workshop.
-               </p>
+              <p className="text-sm italic text-brand-black/60 leading-relaxed">
+                A confirmation email has been sent to your registered address.
+                Our artisans will notify you as soon as your selection leaves our flagship workshop.
+              </p>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}

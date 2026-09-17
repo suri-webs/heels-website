@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { User, Package, MapPin, LogOut, ChevronRight, Calendar, DollarSign } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -81,9 +81,8 @@ const DashboardPage = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`w-full flex items-center justify-between p-5 text-xs uppercase tracking-widest font-bold transition-all border-b last:border-0 border-brand-black/5 ${
-                    activeTab === tab.id ? 'bg-brand-black text-brand-white' : 'hover:bg-brand-black/5'
-                  }`}
+                  className={`w-full flex items-center justify-between p-5 text-xs uppercase tracking-widest font-bold transition-all border-b last:border-0 border-brand-black/5 ${activeTab === tab.id ? 'bg-brand-black text-brand-white' : 'hover:bg-brand-black/5'
+                    }`}
                 >
                   <div className="flex items-center gap-4">
                     <tab.icon size={18} />
@@ -92,7 +91,7 @@ const DashboardPage = () => {
                   <ChevronRight size={14} />
                 </button>
               ))}
-              <button 
+              <button
                 onClick={handleLogout}
                 className="w-full flex items-center gap-4 p-5 text-xs uppercase tracking-widest font-bold text-red-500 hover:bg-red-50 transition-all"
               >
@@ -100,7 +99,7 @@ const DashboardPage = () => {
                 <span>Logout</span>
               </button>
             </div>
-            
+
             {user?.role === "admin" && (
               <Button onClick={() => router.push("/admin")} variant="outline" className="w-full">
                 Admin Panel

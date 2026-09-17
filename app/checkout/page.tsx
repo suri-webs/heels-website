@@ -6,7 +6,7 @@ import NextImage from "next/image";
 import axios from "axios";
 import { CreditCard, Truck, ShieldCheck, ArrowRight, ChevronLeft } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { useCart } from "@/lib/store/useCart";
 import toast from "react-hot-toast";
 import Link from "next/link";
@@ -16,7 +16,7 @@ const CheckoutPage = () => {
   const { items, totalItems, totalPrice, clearCart } = useCart();
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(false);
-  
+
   const [address, setAddress] = useState({
     street: "",
     city: "",
@@ -47,7 +47,7 @@ const CheckoutPage = () => {
     setLoading(true);
     try {
       await axios.get("/api/auth/me");
-      
+
       const orderData = {
         orderItems: items,
         shippingAddress: {
@@ -116,7 +116,7 @@ const CheckoutPage = () => {
                     required
                     type="text"
                     value={address.street}
-                    onChange={(e) => setAddress({...address, street: e.target.value})}
+                    onChange={(e) => setAddress({ ...address, street: e.target.value })}
                     className="w-full bg-transparent border-b border-brand-black/10 py-3 focus:outline-none focus:border-brand-gold transition-colors text-sm"
                     placeholder="123 Luxury Ave, Apt 4"
                   />
@@ -127,7 +127,7 @@ const CheckoutPage = () => {
                     required
                     type="text"
                     value={address.city}
-                    onChange={(e) => setAddress({...address, city: e.target.value})}
+                    onChange={(e) => setAddress({ ...address, city: e.target.value })}
                     className="w-full bg-transparent border-b border-brand-black/10 py-3 focus:outline-none focus:border-brand-gold transition-colors text-sm"
                     placeholder="New York"
                   />
@@ -138,7 +138,7 @@ const CheckoutPage = () => {
                     required
                     type="text"
                     value={address.postalCode}
-                    onChange={(e) => setAddress({...address, postalCode: e.target.value})}
+                    onChange={(e) => setAddress({ ...address, postalCode: e.target.value })}
                     className="w-full bg-transparent border-b border-brand-black/10 py-3 focus:outline-none focus:border-brand-gold transition-colors text-sm"
                     placeholder="10001"
                   />
@@ -149,7 +149,7 @@ const CheckoutPage = () => {
                     required
                     type="text"
                     value={address.country}
-                    onChange={(e) => setAddress({...address, country: e.target.value})}
+                    onChange={(e) => setAddress({ ...address, country: e.target.value })}
                     className="w-full bg-transparent border-b border-brand-black/10 py-3 focus:outline-none focus:border-brand-gold transition-colors text-sm"
                     placeholder="United States"
                   />

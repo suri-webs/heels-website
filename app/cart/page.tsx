@@ -6,8 +6,8 @@ import NextImage from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, ArrowLeft } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import { useCart } from "@/lib/store/useCart";
+import { Button } from "@/components/ui/Button";
 
 const CartPage = () => {
   const { items, updateQuantity, removeItem, totalPrice, totalItems } = useCart();
@@ -88,14 +88,14 @@ const CartPage = () => {
                       <div className="flex items-center justify-between mt-8">
                         {/* Quantity Controls */}
                         <div className="flex items-center border border-brand-black/10 px-2 py-1">
-                          <button 
+                          <button
                             onClick={() => updateQuantity(item._id, item.size, item.quantity - 1)}
                             className="p-2 hover:text-brand-gold transition-colors"
                           >
                             <Minus size={14} />
                           </button>
                           <span className="w-10 text-center text-xs font-bold">{item.quantity}</span>
-                          <button 
+                          <button
                             onClick={() => updateQuantity(item._id, item.size, item.quantity + 1)}
                             className="p-2 hover:text-brand-gold transition-colors"
                           >
@@ -104,7 +104,7 @@ const CartPage = () => {
                         </div>
 
                         {/* Remove Button */}
-                        <button 
+                        <button
                           onClick={() => removeItem(item._id, item.size)}
                           className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-brand-black/40 hover:text-red-500 transition-colors"
                         >
@@ -123,7 +123,7 @@ const CartPage = () => {
           <div className="lg:w-96">
             <div className="bg-brand-white p-8 md:p-10 sticky top-32">
               <h2 className="text-2xl font-serif mb-8 border-b border-brand-black/5 pb-6">Order Summary</h2>
-              
+
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between text-sm uppercase tracking-widest text-brand-black/60">
                   <span>Subtotal</span>

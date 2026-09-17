@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, Heart, Search, Menu, X, User, ArrowRight, LayoutDashboard } from "lucide-react";
+import { ShoppingBag, Heart, Search, Menu, X, User, LayoutDashboard } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/store/useCart";
 import { useWishlist } from "@/lib/store/useWishlist";
@@ -30,7 +30,7 @@ const Navbar = () => {
       try {
         const res = await axios.get("/api/auth/me");
         setUser(res.data);
-      } catch (err) {
+      } catch {
         setUser(null);
       }
     };

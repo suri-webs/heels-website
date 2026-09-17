@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Mail, Lock, ArrowRight, Eye, EyeOff } from "lucide-react";
@@ -35,7 +35,7 @@ const LoginPage = () => {
   return (
     <div className="bg-brand-cream min-h-[80vh] flex items-center py-12">
       <Container className="flex justify-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-md bg-brand-white p-8 md:p-12 shadow-sm border border-brand-black/5"

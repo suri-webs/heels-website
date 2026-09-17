@@ -5,13 +5,13 @@ import axios from "axios";
 import NextImage from "next/image";
 import { useParams } from "next/navigation";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import { Heart, ShoppingBag, Star, Share2, Info, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useCart } from "@/lib/store/useCart";
 import { useWishlist } from "@/lib/store/useWishlist";
 import toast from "react-hot-toast";
+import { Button } from "@/components/ui/Button";
 
 const ProductDetailsPage = () => {
   const params = useParams();
@@ -139,11 +139,10 @@ const ProductDetailsPage = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`w-14 h-14 border flex items-center justify-center transition-all ${
-                      selectedSize === size
-                        ? "border-brand-black bg-brand-black text-brand-white"
-                        : "border-brand-black/10 hover:border-brand-black"
-                    }`}
+                    className={`w-14 h-14 border flex items-center justify-center transition-all ${selectedSize === size
+                      ? "border-brand-black bg-brand-black text-brand-white"
+                      : "border-brand-black/10 hover:border-brand-black"
+                      }`}
                   >
                     <span className="text-xs font-bold">{size}</span>
                   </button>
